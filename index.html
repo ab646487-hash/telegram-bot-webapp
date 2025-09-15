@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Панель управления</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="header-title">Панель управления</div>
+        </div>
+        <div class="header-right">
+            <div class="user-avatar">А</div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab-item active">Заказы</div>
+        <div class="tab-item">Смены</div>
+        <div class="tab-item">Отчёты</div>
+    </div>
+
+    <!-- Orders List -->
+    <div class="orders-container">
+        <div class="order-card" onclick="openOrderDetail(1001)">
+            <div class="order-header">
+                <div class="order-id">#1001</div>
+                <div class="order-priority priority-urgent">Срочный</div>
+            </div>
+            <div class="order-body">
+                <div class="order-address">ул. Ленина, 15</div>
+                <div class="order-meta">
+                    <span class="assignee">Баранов А.</span>
+                    <span class="deadline">до 10.04</span>
+                </div>
+            </div>
+            <div class="order-footer">
+                <div class="status-badge status-in-progress">В работе</div>
+            </div>
+        </div>
+
+        <div class="order-card" onclick="openOrderDetail(1002)">
+            <div class="order-header">
+                <div class="order-id">#1002</div>
+                <div class="order-priority priority-normal">Обычный</div>
+            </div>
+            <div class="order-body">
+                <div class="order-address">пр. Мира, 22</div>
+                <div class="order-meta">
+                    <span class="assignee">Петрова М.</span>
+                    <span class="deadline">до 12.04</span>
+                </div>
+            </div>
+            <div class="order-footer">
+                <div class="status-badge status-pending">Назначен</div>
+            </div>
+        </div>
+
+        <div class="order-card" onclick="openOrderDetail(1003)">
+            <div class="order-header">
+                <div class="order-id">#1003</div>
+                <div class="order-priority priority-normal">Обычный</div>
+            </div>
+            <div class="order-body">
+                <div class="order-address">ул. Садовая, 5</div>
+                <div class="order-meta">
+                    <span class="assignee">Сидоров Д.</span>
+                    <span class="deadline">до 08.04</span>
+                </div>
+            </div>
+            <div class="order-footer">
+                <div class="status-badge status-done">Выполнен</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="nav-item active">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Главная</span>
+        </div>
+        <div class="nav-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span>Заказы</span>
+        </div>
+        <div class="nav-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Отчёты</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
